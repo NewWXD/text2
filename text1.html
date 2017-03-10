@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+	ul { padding:0; margin:0; }
+	li { list-style:none; display: inline-block;border: 2px solid red;width: 30px;height: 30px;}
+</style>
+
+<script type="text/javascript">
+	window.onload=function(){
+		var aUl=document.getElementsByTagName("ul");
+		var aLi1=aUl[0].getElementsByTagName("li");
+		var aLi2=aUl[1].getElementsByTagName("li");
+		var oBtn=document.getElementsByTagName("button")[0];
+		var timer=null;
+		var num1=0;
+		var onOff=true;
+		oBtn.onclick=function(){
+				fn1();
+		}
+		function fn1(){
+			clearInterval(timer);
+			
+			timer=setInterval(function(){
+				if(onOff){obj=aLi1}else{obj=aLi2}
+				for(var i=0;i<aLi1.length;i++){aLi1[i].style.background="";}
+				for(var i=0;i<aLi2.length;i++){aLi2[i].style.background="";}	
+
+				obj[num1].style.background="red";
+				num1++;
+				if(num1==obj.length){num1=0;onOff=!onOff};
+			},400)
+			
+		}
+
+
+
+	}
+</script>
+</head>
+
+<body>
+<ul>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+</ul>
+<ul>
+	<li></li>
+	<li></li>
+	<li></li>
+</ul>
+<button>开始</button>
+<div>111</div>
+<div>222</div>
+<div>333</div>
+</body>
+</html>
